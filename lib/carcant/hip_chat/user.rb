@@ -8,6 +8,14 @@ module Carcant
         @mention_name = mention_name
         @name         = name
       end
+
+      def to_h
+        {
+          'id'           => id,
+          'mention_name' => mention_name,
+          'name'         => name
+        }
+      end
     end
   end
 end

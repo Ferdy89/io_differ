@@ -1,5 +1,6 @@
 require 'net/http'
 require 'json'
+require 'carcant/hip_chat/user_list'
 require 'carcant/hip_chat/user'
 
 module Carcant
@@ -14,13 +15,15 @@ module Carcant
     end
 
     def users
-      raw_users_data.map do |raw_user_data|
-        Carcant::HipChat::User.new(
-          id:            raw_user_data['id'],
-          mention_name:  raw_user_data['mention_name'],
-          name:          raw_user_data['name']
-        )
-      end
+      Carcant::HipChat::UserList.new(
+        raw_users_data.map do |raw_user_data|
+          Carcant::HipChat::User.new(
+            id:            raw_user_data['id'],
+            mention_name:  raw_user_data['mention_name'],
+            name:          raw_user_data['name']
+          )
+        end
+      )
     end
 
     private

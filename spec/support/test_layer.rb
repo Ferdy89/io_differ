@@ -4,6 +4,7 @@ module Support
     end
 
     def read_latest
+      []
     end
   end
 end

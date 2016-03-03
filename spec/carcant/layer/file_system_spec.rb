@@ -12,25 +12,27 @@ RSpec.describe Carcant::Layer::FileSystem do
   it_behaves_like 'a layer'
 
   describe '#create' do
-    it 'appends to a JSON object in a file with the epoch timestamp as a key' do
+    it 'appends a JSON object to a file with a timestamp' do
       file.write(JSON.dump('foo' => 'bar'))
+      file.write("\n")
       file.close
       file.open
 
-      subject.create(['a', 'b', 'c'])
+      Timecop.freeze(Time.utc(2016, 3, 2, 20, 50, 1))
+      subject.create([{ 'id' => '1' }, { 'id' => '2' }])
 
-      stored_contents = JSON.load(file.read)
-      expect(stored_contents['foo']).to eql('bar')
-      expect(stored_contents.values).to include(['a', 'b', 'c'])
+      stored_contents = file.readlines.map { |l| JSON.load(l) }
+      expect(stored_contents).to eql([{ 'foo' => 'bar' }, { 'users' => [{ 'id' => '1' }, { 'id' => '2' }], 'timestamp' => 1456951801 }])
     end
   end
 
   describe '#read_latest' do
-    it 'fetches the entry with the largest epoch key' do
-      file.write(JSON.dump('12345' => 'foo', '54321' => 'bar'))
-      file.close
+    it 'fetches the last entry' do
+      subject.create('a' => 'a')
+      subject.create('c' => 'c')
+      subject.create('b' => 'b')
 
-      expect(subject.read_latest).to eql('bar')
+      expect(subject.read_latest).to eql('b' => 'b')
     end
   end
 end

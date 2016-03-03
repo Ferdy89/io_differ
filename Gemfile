@@ -8,4 +8,7 @@ source 'https://rubygems.org' do
 
   # Records and replays HTTP interactions for tests
   gem 'vcr',     '~> 3.0',  require: false
+
+  # Mocks the Time methods for testing
+  gem 'timecop', '~> 0.8',  require: false
 end

@@ -19,8 +19,8 @@ RSpec.describe Carcant do
     end
 
     expected_output = <<-OUT
-e[32mBar Wut has been hired!
-e[31mFoo Lol has been fired :(
+\e[32mBar Wut has been hired!\e[0m
+\e[31mFoo Lol has been fired :(\e[0m
 OUT
     expect { Carcant::DiffPublisher.publish(diff: diff) }.to output(expected_output).to_stdout
   end

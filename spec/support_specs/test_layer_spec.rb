@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'support/test_layer'
-require 'carcant/store/shared_examples'
+require 'carcant/layer/shared_examples'
 
 RSpec.describe Support::TestLayer do
-  it_behaves_like 'a store'
+  it_behaves_like 'a layer'
 end

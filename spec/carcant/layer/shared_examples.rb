@@ -1,4 +1,4 @@
-RSpec.shared_examples 'a store' do
+RSpec.shared_examples 'a layer' do
   it 'responds to create' do
     is_expected.to respond_to(:create)
   end

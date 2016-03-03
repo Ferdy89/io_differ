@@ -1,0 +1,1 @@
+require 'carcant/subscriber/stdout'

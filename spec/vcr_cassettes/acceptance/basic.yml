@@ -1,0 +1,117 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.hipchat.com/v2/user?auth_token=token&max-results=1000
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.hipchat.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Date, ETag, Link, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-Backoff
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 02 Mar 2016 20:19:44 GMT
+      Server:
+      - nginx
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Remaining:
+      - '100'
+      X-Ratelimit-Reset:
+      - '1456950285'
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"items": [{"id": 1, "links": {"self": "https://api.hipchat.com/v2/user/1"},
+        "mention_name": "Foo", "name": "Foo Lol", "version": "00000000"},
+        {"id": 2, "links": {"self": "https://api.hipchat.com/v2/user/2"},
+        "mention_name": "Stable", "name": "Stable Man", "version": "00000000"}],
+        "links": {"self": "https://api.hipchat.com/v2/user"}, "maxResults": 1000,
+        "startIndex": 0}'
+    http_version: 
+  recorded_at: Wed, 02 Mar 2016 20:19:47 GMT
+- request:
+    method: get
+    uri: https://api.hipchat.com/v2/user?auth_token=token&max-results=1000
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.hipchat.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Date, ETag, Link, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-Backoff
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 02 Mar 2016 20:19:44 GMT
+      Server:
+      - nginx
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Remaining:
+      - '99'
+      X-Ratelimit-Reset:
+      - '1456950285'
+      X-Xss-Protection:
+      - 1; mode=block
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"items": [{"id": 2, "links": {"self": "https://api.hipchat.com/v2/user/2"},
+        "mention_name": "NewStable", "name": "Not So Stable Anymore", "version": "00000000"},
+        {"id": 3, "links": {"self": "https://api.hipchat.com/v2/user/3"},
+        "mention_name": "Bar", "name": "Bar Wut", "version": "00000000"}],
+        "links": {"self": "https://api.hipchat.com/v2/user"}, "maxResults": 1000,
+        "startIndex": 0}'
+    http_version: 
+  recorded_at: Wed, 02 Mar 2016 20:19:47 GMT
+recorded_with: VCR 3.0.0

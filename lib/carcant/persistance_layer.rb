@@ -2,7 +2,7 @@ require 'carcant/hip_chat/user'
 require 'carcant/hip_chat/user_list'
 
 module Carcant
-  class Store
+  class PersistanceLayer
     attr_reader :layer
 
     def initialize(layer: )

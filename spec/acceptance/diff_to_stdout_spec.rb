@@ -5,17 +5,17 @@ RSpec.describe Carcant do
 
   it 'fetches the list of users, runs a diff and outputs it to stdout with colors' do
     Carcant::DiffPublisher.subscribers << Carcant::Subscriber::Stdout
-    hip_chat = Carcant::HipChat.new(token: 'token')
-    file     = Tempfile.new('carcant')
-    layer    = Carcant::Layer::FileSystem.new(path: file.path)
-    store    = Carcant::Store.new(layer: layer)
-    diff     = nil
+    hip_chat          = Carcant::HipChat.new(token: 'token')
+    file              = Tempfile.new('carcant')
+    layer             = Carcant::Layer::FileSystem.new(path: file.path)
+    persistance_layer = Carcant::PersistanceLayer.new(layer: layer)
+    diff              = nil
 
     VCR.use_cassette('acceptance/basic') do
       original_list = hip_chat.users
-      store.write_user_list([{ 'id' => 2, 'name' => 'Buuuh', 'mention_name' => 'B' }])
-      store.write_user_list(original_list)
-      diff = store.read_latest.diff(hip_chat.users)
+      persistance_layer.write_user_list([{ 'id' => 2, 'name' => 'Buuuh', 'mention_name' => 'B' }])
+      persistance_layer.write_user_list(original_list)
+      diff = persistance_layer.read_latest.diff(hip_chat.users)
     end
 
     expected_output = <<-OUT

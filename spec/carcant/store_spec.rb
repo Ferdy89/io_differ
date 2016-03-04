@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'carcant/store'
+require 'carcant/persistance_layer'
 require 'support/test_layer'
 
-RSpec.describe Carcant::Store do
+RSpec.describe Carcant::PersistanceLayer do
 
   subject { described_class.new(layer: layer) }
 

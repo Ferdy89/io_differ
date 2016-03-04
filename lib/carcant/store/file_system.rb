@@ -1,5 +1,5 @@
 module Carcant
-  module Layer
+  module Store
     class FileSystem
       TIMESTAMP_KEY = 'timestamp'
       USERS_KEY     = 'users'

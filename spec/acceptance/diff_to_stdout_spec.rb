@@ -7,8 +7,8 @@ RSpec.describe Carcant do
     Carcant::DiffPublisher.subscribers << Carcant::Subscriber::Stdout
     hip_chat          = Carcant::HipChat.new(token: 'token')
     file              = Tempfile.new('carcant')
-    layer             = Carcant::Layer::FileSystem.new(path: file.path)
-    persistance_layer = Carcant::PersistanceLayer.new(layer: layer)
+    store             = Carcant::Store::FileSystem.new(path: file.path)
+    persistance_layer = Carcant::PersistanceLayer.new(store: store)
     diff              = nil
 
     VCR.use_cassette('acceptance/basic') do

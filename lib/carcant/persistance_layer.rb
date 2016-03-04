@@ -3,19 +3,19 @@ require 'carcant/hip_chat/user_list'
 
 module Carcant
   class PersistanceLayer
-    attr_reader :layer
+    attr_reader :store
 
-    def initialize(layer: )
-      @layer = layer
+    def initialize(store: )
+      @store = store
     end
 
     def write_user_list(list)
-      layer.create(list.map(&:to_h))
+      store.create(list.map(&:to_h))
     end
 
     def read_latest
       Carcant::HipChat::UserList.new(
-        layer.read_latest.map do |row|
+        store.read_latest.map do |row|
           Carcant::HipChat::User.new(
             id:            row['id'],
             name:          row['name'],

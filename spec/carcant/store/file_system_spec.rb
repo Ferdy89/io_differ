@@ -1,15 +1,15 @@
 require 'spec_helper'
-require 'carcant/layer/file_system'
-require 'carcant/layer/shared_examples'
+require 'carcant/store/file_system'
+require 'carcant/store/shared_examples'
 require 'tempfile'
 
-RSpec.describe Carcant::Layer::FileSystem do
+RSpec.describe Carcant::Store::FileSystem do
 
   subject { described_class.new(path: file.path) }
 
   let(:file) { Tempfile.new('carcant') }
 
-  it_behaves_like 'a layer'
+  it_behaves_like 'a store'
 
   describe '#create' do
     it 'appends a JSON object to a file with a timestamp' do

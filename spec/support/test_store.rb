@@ -1,5 +1,5 @@
 module Support
-  class TestLayer
+  class TestStore
     def create(data)
     end
 

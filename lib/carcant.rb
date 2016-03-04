@@ -1,5 +1,5 @@
 require 'carcant/hip_chat'
 require 'carcant/persistance_layer'
-require 'carcant/layer'
+require 'carcant/store'
 require 'carcant/diff_publisher'
 require 'carcant/subscriber'

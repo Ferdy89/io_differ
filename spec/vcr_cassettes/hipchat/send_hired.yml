@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.hipchat.com/v2/user/1234/message?auth_token=token
+    body:
+      encoding: UTF-8
+      string: '{"message":"Foo was hired","notify":true}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.hipchat.com
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Date, ETag, Link, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-Backoff
+      Content-Type:
+      - text/html
+      Date:
+      - Fri, 04 Mar 2016 00:06:57 GMT
+      Location:
+      - https://api.hipchat.com/v2/user/1234/history/ae24c604-ced5-44cd-9dbf-7923282379e4
+      Server:
+      - nginx
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Floodcontrol-Limit:
+      - '30'
+      X-Floodcontrol-Remaining:
+      - '30'
+      X-Floodcontrol-Reset:
+      - '1457050078'
+      X-Ratelimit-Limit:
+      - '100'
+      X-Ratelimit-Remaining:
+      - '100'
+      X-Ratelimit-Reset:
+      - '1457050318'
+      X-Xss-Protection:
+      - 1; mode=block
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Fri, 04 Mar 2016 00:06:57 GMT
+recorded_with: VCR 3.0.0

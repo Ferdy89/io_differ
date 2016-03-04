@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'carcant/hip_chat/user'
+require 'carcant/user'
 
-RSpec.describe Carcant::HipChat::User do
+RSpec.describe Carcant::User do
 
   subject { described_class.new(id: 1, name: 'FooBar') }
 

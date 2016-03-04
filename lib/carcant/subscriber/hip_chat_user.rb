@@ -28,7 +28,7 @@ module Carcant
         req['Content-Type'] = 'application/json'
         req.body            = JSON.dump({ message: text, notify: true })
 
-        res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
+        Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
           http.request(req)
         end
       end

@@ -1,5 +1,7 @@
+require 'carcant/diff_publisher'
 require 'carcant/hip_chat'
 require 'carcant/persistance_layer'
 require 'carcant/store'
-require 'carcant/diff_publisher'
 require 'carcant/subscriber'
+require 'carcant/user'
+require 'carcant/user_list'

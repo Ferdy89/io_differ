@@ -1,4 +1,4 @@
-require 'carcant/hip_chat'
+require 'carcant'
 
 module Carcant
   module Subscriber
@@ -29,7 +29,7 @@ module Carcant
         req['Content-Type'] = 'application/json'
         req.body            = JSON.dump({ message: text, from: from, notify: true, color: color })
 
-        res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
+        Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
           http.request(req)
         end
       end

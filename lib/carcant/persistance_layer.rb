@@ -1,5 +1,5 @@
-require 'carcant/hip_chat/user'
-require 'carcant/hip_chat/user_list'
+require 'carcant/user'
+require 'carcant/user_list'
 
 module Carcant
   class PersistanceLayer
@@ -14,9 +14,9 @@ module Carcant
     end
 
     def read_latest
-      Carcant::HipChat::UserList.new(
+      Carcant::UserList.new(
         store.read_latest.map do |row|
-          Carcant::HipChat::User.new(
+          Carcant::User.new(
             id:    row['id'],
             name:  row['name'],
           )

@@ -13,7 +13,7 @@ RSpec.describe Carcant do
 
     VCR.use_cassette('acceptance/basic') do
       original_list = hip_chat.users
-      persistance_layer.write_user_list([{ 'id' => 2, 'name' => 'Buuuh', 'mention_name' => 'B' }])
+      persistance_layer.write_user_list([{ 'id' => 2, 'name' => 'Buuuh' }])
       persistance_layer.write_user_list(original_list)
       diff = persistance_layer.read_latest.diff(hip_chat.users)
     end

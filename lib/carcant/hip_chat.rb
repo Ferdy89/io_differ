@@ -19,7 +19,6 @@ module Carcant
         raw_users_data.map do |raw_user_data|
           Carcant::HipChat::User.new(
             id:            raw_user_data['id'],
-            mention_name:  raw_user_data['mention_name'],
             name:          raw_user_data['name']
           )
         end

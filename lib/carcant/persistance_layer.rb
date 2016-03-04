@@ -17,9 +17,8 @@ module Carcant
       Carcant::HipChat::UserList.new(
         store.read_latest.map do |row|
           Carcant::HipChat::User.new(
-            id:            row['id'],
-            name:          row['name'],
-            mention_name:  row['mention_name']
+            id:    row['id'],
+            name:  row['name'],
           )
         end
       )

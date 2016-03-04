@@ -8,10 +8,10 @@ RSpec.describe Carcant::HipChat::UserList do
   let(:users) { [] }
 
   describe '#diff' do
-    let(:user_foo)         { Carcant::HipChat::User.new(id: 1, name: 'Lord Foo', mention_name: 'Foo') }
-    let(:user_foo_changed) { Carcant::HipChat::User.new(id: 1, name: 'Foodor', mention_name: 'Wat') }
-    let(:user_bar)         { Carcant::HipChat::User.new(id: 2, name: 'Mr Bar', mention_name: 'Bar') }
-    let(:user_baz)         { Carcant::HipChat::User.new(id: 3, name: 'Don Baz', mention_name: 'Baz') }
+    let(:user_foo)         { Carcant::HipChat::User.new(id: 1, name: 'Lord Foo') }
+    let(:user_foo_changed) { Carcant::HipChat::User.new(id: 1, name: 'Foodor') }
+    let(:user_bar)         { Carcant::HipChat::User.new(id: 2, name: 'Mr Bar') }
+    let(:user_baz)         { Carcant::HipChat::User.new(id: 3, name: 'Don Baz') }
 
     let(:list_1) { described_class.new([user_foo, user_bar]) }
     let(:list_2) { described_class.new([user_baz, user_foo_changed]) }

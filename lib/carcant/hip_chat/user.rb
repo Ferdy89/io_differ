@@ -1,20 +1,15 @@
 module Carcant
   class HipChat
     class User
-      attr_reader :id, :mention_name, :name
+      attr_reader :id, :name
 
-      def initialize(id: , mention_name: , name: )
-        @id           = id
-        @mention_name = mention_name
-        @name         = name
+      def initialize(id: , name: )
+        @id   = id
+        @name = name
       end
 
       def to_h
-        {
-          'id'           => id,
-          'mention_name' => mention_name,
-          'name'         => name
-        }
+        { id: id, name: name }
       end
     end
   end

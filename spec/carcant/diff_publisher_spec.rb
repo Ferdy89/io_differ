@@ -20,8 +20,8 @@ RSpec.describe Carcant::DiffPublisher do
 
       described_class.publish(diff: diff)
 
-      expect(subscriber).to have_received(:hired).with('Foo Wut has been hired!')
-      expect(subscriber).to have_received(:fired).with('Bar Lol has been fired :(')
+      expect(subscriber).to have_received(:hired).with('Input: Foo Wut')
+      expect(subscriber).to have_received(:fired).with('Output: Bar Lol')
 
       described_class.subscribers.clear
     end

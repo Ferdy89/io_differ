@@ -13,12 +13,12 @@ module Carcant
     end
 
     def self.publish_hires(subscriber, hires)
-      hires.each { |hire| subscriber.hired("#{hire.name} has been hired!") }
+      hires.each { |hire| subscriber.hired("Input: #{hire.name}") }
     end
     private_class_method :publish_hires
 
     def self.publish_layoffs(subscriber, layoffs)
-      layoffs.each { |layoff| subscriber.fired("#{layoff.name} has been fired :(") }
+      layoffs.each { |layoff| subscriber.fired("Output: #{layoff.name}") }
     end
     private_class_method :publish_layoffs
   end

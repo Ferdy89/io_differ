@@ -1,4 +1,5 @@
 require 'carcant/hip_chat'
+require 'erb'
 
 module Carcant
   module Subscriber

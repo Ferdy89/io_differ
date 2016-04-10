@@ -1,4 +1,4 @@
-require 'carcant'
+require 'carcant/hip_chat'
 
 module Carcant
   module Subscriber

@@ -23,5 +23,7 @@ RSpec.describe Carcant do
 \e[31mOutput: Foo Lol\e[0m
 OUT
     expect { Carcant::DiffPublisher.publish(diff: diff) }.to output(expected_output).to_stdout
+
+    Carcant::DiffPublisher.subscribers.clear
   end
 end

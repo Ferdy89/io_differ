@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'carcant/subscriber/stdout'
-require 'carcant/subscriber/shared_examples'
+require 'io_differ/subscriber/stdout'
+require 'io_differ/subscriber/shared_examples'
 
-RSpec.describe Carcant::Subscriber::Stdout do
+RSpec.describe IoDiffer::Subscriber::Stdout do
 
   subject { described_class }
 

@@ -1,13 +1,13 @@
 require 'spec_helper'
-require 'carcant/persistance_layer'
+require 'io_differ/persistance_layer'
 require 'support/test_store'
 
-RSpec.describe Carcant::PersistanceLayer do
+RSpec.describe IoDiffer::PersistanceLayer do
 
   subject { described_class.new(store: store) }
 
   let(:store) { Support::TestStore.new }
-  let(:user)  { Carcant::User.new(id: 1, name: 'FooBar') }
+  let(:user)  { IoDiffer::User.new(id: 1, name: 'FooBar') }
 
   describe '#write_user_list' do
     it 'takes a list of Users and sends it to the store as a hash' do
@@ -26,7 +26,7 @@ RSpec.describe Carcant::PersistanceLayer do
 
       result = subject.read_latest
 
-      expect(result).to be_kind_of(Carcant::UserList)
+      expect(result).to be_kind_of(IoDiffer::UserList)
       expect(result).to satisfy('contains the user from the store') do |users|
         users.any? { |u| u.id == 1 && u.name == 'FooBar' }
       end

@@ -1,4 +1,4 @@
-module Carcant
+module IoDiffer
   module Subscriber
     class Stdout
       COLORS = {

@@ -1,4 +1,4 @@
-module Carcant
+module IoDiffer
   module Store
     class FileSystem
       TIMESTAMP_KEY = 'timestamp'

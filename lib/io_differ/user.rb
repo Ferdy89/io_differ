@@ -1,4 +1,4 @@
-module Carcant
+module IoDiffer
   class User
     attr_reader :id, :name
 

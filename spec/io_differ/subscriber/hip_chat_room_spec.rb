@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'carcant/subscriber/hip_chat_room'
-require 'carcant/subscriber/shared_examples'
+require 'io_differ/subscriber/hip_chat_room'
+require 'io_differ/subscriber/shared_examples'
 
-RSpec.describe Carcant::Subscriber::HipChatRoom do
+RSpec.describe IoDiffer::Subscriber::HipChatRoom do
 
   subject { described_class.new(token: 'token', room: 'Da Room', from: 'GOD') }
 
@@ -14,7 +14,7 @@ RSpec.describe Carcant::Subscriber::HipChatRoom do
         subject.fired('Foo was fired')
       end
 
-      expect(WebMock).to have_requested(:post, "#{Carcant::HipChat::API_ENDPOINT}/room/Da%20Room/notification?auth_token=token")
+      expect(WebMock).to have_requested(:post, "#{IoDiffer::HipChat::API_ENDPOINT}/room/Da%20Room/notification?auth_token=token")
         .with(body: JSON.dump(message: 'Foo was fired', from: 'GOD', notify: true, color: 'red'))
     end
   end
@@ -25,7 +25,7 @@ RSpec.describe Carcant::Subscriber::HipChatRoom do
         subject.hired('Foo was hired')
       end
 
-      expect(WebMock).to have_requested(:post, "#{Carcant::HipChat::API_ENDPOINT}/room/Da%20Room/notification?auth_token=token")
+      expect(WebMock).to have_requested(:post, "#{IoDiffer::HipChat::API_ENDPOINT}/room/Da%20Room/notification?auth_token=token")
         .with(body: JSON.dump(message: 'Foo was hired', from: 'GOD', notify: true, color: 'green'))
     end
   end

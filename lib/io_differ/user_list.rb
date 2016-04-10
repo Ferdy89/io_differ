@@ -1,6 +1,6 @@
-require 'carcant/user'
+require 'io_differ/user'
 
-module Carcant
+module IoDiffer
   class UserList
     include Enumerable
 

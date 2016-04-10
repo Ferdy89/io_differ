@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'carcant/user'
+require 'io_differ/user'
 
-RSpec.describe Carcant::User do
+RSpec.describe IoDiffer::User do
 
   subject { described_class.new(id: 1, name: 'FooBar') }
 

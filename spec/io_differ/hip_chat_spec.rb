@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'carcant/hip_chat'
+require 'io_differ/hip_chat'
 
-RSpec.describe Carcant::HipChat do
+RSpec.describe IoDiffer::HipChat do
 
   subject { described_class.new(token: 'token') }
 

@@ -1,6 +1,6 @@
-require 'carcant/hip_chat'
+require 'io_differ/hip_chat'
 
-module Carcant
+module IoDiffer
   module Subscriber
     class HipChatUser
       attr_reader :token, :user_id
@@ -22,7 +22,7 @@ module Carcant
 
       def send_message(text)
         query = URI.encode_www_form([['auth_token', token]])
-        uri   = URI("#{Carcant::HipChat::API_ENDPOINT}/user/#{user_id}/message?#{query}")
+        uri   = URI("#{IoDiffer::HipChat::API_ENDPOINT}/user/#{user_id}/message?#{query}")
 
         req                 = Net::HTTP::Post.new(uri)
         req['Content-Type'] = 'application/json'

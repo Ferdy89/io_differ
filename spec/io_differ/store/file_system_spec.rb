@@ -1,13 +1,13 @@
 require 'spec_helper'
-require 'carcant/store/file_system'
-require 'carcant/store/shared_examples'
+require 'io_differ/store/file_system'
+require 'io_differ/store/shared_examples'
 require 'tempfile'
 
-RSpec.describe Carcant::Store::FileSystem do
+RSpec.describe IoDiffer::Store::FileSystem do
 
   subject { described_class.new(path: file.path) }
 
-  let(:file) { Tempfile.new('carcant') }
+  let(:file) { Tempfile.new('io_differ') }
 
   it_behaves_like 'a store'
 

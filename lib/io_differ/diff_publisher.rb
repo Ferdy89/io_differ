@@ -1,4 +1,4 @@
-module Carcant
+module IoDiffer
   class DiffPublisher
 
     def self.subscribers

@@ -1,7 +1,7 @@
-require 'carcant/hip_chat'
+require 'io_differ/hip_chat'
 require 'erb'
 
-module Carcant
+module IoDiffer
   module Subscriber
     class HipChatRoom
       attr_reader :token, :room, :from
@@ -24,7 +24,7 @@ module Carcant
 
       def send_message(text, color)
         query = URI.encode_www_form([['auth_token', token]])
-        uri   = URI("#{Carcant::HipChat::API_ENDPOINT}/room/#{ERB::Util.url_encode(room)}/notification?#{query}")
+        uri   = URI("#{IoDiffer::HipChat::API_ENDPOINT}/room/#{ERB::Util.url_encode(room)}/notification?#{query}")
 
         req                 = Net::HTTP::Post.new(uri)
         req['Content-Type'] = 'application/json'

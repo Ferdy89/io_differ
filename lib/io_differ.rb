@@ -1,0 +1,7 @@
+require 'io_differ/diff_publisher'
+require 'io_differ/hip_chat'
+require 'io_differ/persistance_layer'
+require 'io_differ/store'
+require 'io_differ/subscriber'
+require 'io_differ/user'
+require 'io_differ/user_list'

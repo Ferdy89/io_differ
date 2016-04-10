@@ -1,7 +1,7 @@
-require 'carcant/user'
-require 'carcant/user_list'
+require 'io_differ/user'
+require 'io_differ/user_list'
 
-module Carcant
+module IoDiffer
   class PersistanceLayer
     attr_reader :store
 
@@ -14,9 +14,9 @@ module Carcant
     end
 
     def read_latest
-      Carcant::UserList.new(
+      IoDiffer::UserList.new(
         store.read_latest.map do |row|
-          Carcant::User.new(
+          IoDiffer::User.new(
             id:    row['id'],
             name:  row['name'],
           )

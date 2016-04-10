@@ -1,7 +1,7 @@
 require 'net/http'
 require 'json'
 
-module Carcant
+module IoDiffer
   class HipChat
     API_ENDPOINT = 'https://api.hipchat.com/v2'
 
@@ -13,9 +13,9 @@ module Carcant
     end
 
     def users
-      Carcant::UserList.new(
+      IoDiffer::UserList.new(
         raw_users_data.map do |raw_user_data|
-          Carcant::User.new(id: raw_user_data['id'], name: raw_user_data['name'])
+          IoDiffer::User.new(id: raw_user_data['id'], name: raw_user_data['name'])
         end
       )
     end

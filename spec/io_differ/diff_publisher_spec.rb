@@ -1,9 +1,9 @@
 require 'spec_helper'
-require 'carcant/diff_publisher'
+require 'io_differ/diff_publisher'
 require 'support/test_subscriber'
-require 'carcant/user'
+require 'io_differ/user'
 
-RSpec.describe Carcant::DiffPublisher do
+RSpec.describe IoDiffer::DiffPublisher do
 
   describe '.publish' do
 
@@ -11,8 +11,8 @@ RSpec.describe Carcant::DiffPublisher do
       subscriber = Support::TestSubscriber
       allow(subscriber).to receive_messages(hired: nil, fired: nil)
       described_class.subscribers << subscriber
-      user_hired = instance_double(Carcant::User, name: 'Foo Wut')
-      user_fired = instance_double(Carcant::User, name: 'Bar Lol')
+      user_hired = instance_double(IoDiffer::User, name: 'Foo Wut')
+      user_fired = instance_double(IoDiffer::User, name: 'Bar Lol')
       diff = {
         '+' => [user_hired],
         '-' => [user_fired],

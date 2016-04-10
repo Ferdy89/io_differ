@@ -1,14 +1,14 @@
 require 'spec_helper'
-require 'carcant'
+require 'io_differ'
 
-RSpec.describe Carcant do
+RSpec.describe IoDiffer do
 
   it 'fetches the list of users, runs a diff and outputs it to stdout with colors' do
-    Carcant::DiffPublisher.subscribers << Carcant::Subscriber::Stdout
-    hip_chat          = Carcant::HipChat.new(token: 'token')
-    file              = Tempfile.new('carcant')
-    store             = Carcant::Store::FileSystem.new(path: file.path)
-    persistance_layer = Carcant::PersistanceLayer.new(store: store)
+    IoDiffer::DiffPublisher.subscribers << IoDiffer::Subscriber::Stdout
+    hip_chat          = IoDiffer::HipChat.new(token: 'token')
+    file              = Tempfile.new('io_differ')
+    store             = IoDiffer::Store::FileSystem.new(path: file.path)
+    persistance_layer = IoDiffer::PersistanceLayer.new(store: store)
     diff              = nil
 
     VCR.use_cassette('acceptance/basic') do
@@ -22,8 +22,8 @@ RSpec.describe Carcant do
 \e[32mInput: Bar Wut\e[0m
 \e[31mOutput: Foo Lol\e[0m
 OUT
-    expect { Carcant::DiffPublisher.publish(diff: diff) }.to output(expected_output).to_stdout
+    expect { IoDiffer::DiffPublisher.publish(diff: diff) }.to output(expected_output).to_stdout
 
-    Carcant::DiffPublisher.subscribers.clear
+    IoDiffer::DiffPublisher.subscribers.clear
   end
 end

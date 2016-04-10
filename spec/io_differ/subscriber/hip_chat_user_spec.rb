@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'carcant/subscriber/hip_chat_user'
-require 'carcant/subscriber/shared_examples'
+require 'io_differ/subscriber/hip_chat_user'
+require 'io_differ/subscriber/shared_examples'
 
-RSpec.describe Carcant::Subscriber::HipChatUser do
+RSpec.describe IoDiffer::Subscriber::HipChatUser do
 
   subject { described_class.new(token: 'token', user_id: 1234) }
 
@@ -14,7 +14,7 @@ RSpec.describe Carcant::Subscriber::HipChatUser do
         subject.fired('Foo was fired')
       end
 
-      expect(WebMock).to have_requested(:post, "#{Carcant::HipChat::API_ENDPOINT}/user/1234/message?auth_token=token")
+      expect(WebMock).to have_requested(:post, "#{IoDiffer::HipChat::API_ENDPOINT}/user/1234/message?auth_token=token")
         .with(body: JSON.dump('message' => 'Foo was fired', 'notify' => true))
     end
   end
@@ -25,7 +25,7 @@ RSpec.describe Carcant::Subscriber::HipChatUser do
         subject.hired('Foo was hired')
       end
 
-      expect(WebMock).to have_requested(:post, "#{Carcant::HipChat::API_ENDPOINT}/user/1234/message?auth_token=token")
+      expect(WebMock).to have_requested(:post, "#{IoDiffer::HipChat::API_ENDPOINT}/user/1234/message?auth_token=token")
         .with(body: JSON.dump('message' => 'Foo was hired', 'notify' => true))
     end
   end
